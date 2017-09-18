@@ -1,0 +1,29 @@
+{
+    "name": "send-2shop",
+    "version": "1.0.0",
+    "description": "Send messages 2shops",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "facebook-chat-api": "^1.4.0"
+    },
+    "engines": {
+        "node": ">=6.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/heroku/node-js-sample"
+    },
+    "keywords": [
+        "2shop",
+        "send",
+        "facebook"
+    ],
+    "author": "Y Le",
+    "contributors": [
+        "Y Le <leminhitalia@gmail.com>"
+    ],
+    "license": "MIT"
+}
