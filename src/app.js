@@ -1,10 +1,29 @@
 var fs = require('fs');
 
 //read list of shops
-var shops = fs.readFileSync('./shops.txt').toString().split("\n");
+//var shops = fs.readFileSync('../shops.txt').toString().split("\n");
+fs.readFile('../shops.txt', 'utf8', function(err, data) {
+    if (err) {
+        writeError(err);
+        return console.error(err);
+    }
+    
+    var shops = data.toString().split("\n");
+    //console.error(shops);
+});
+
 
 //read a message
-var message = fs.readFileSync('./messages.txt','utf8').toString();
+//var message = fs.readFileSync('../messages.txt','utf8').toString();
+fs.readFile('../messages.txt', 'utf8', function(err, data) {
+    if (err) {
+        writeError(err);
+        return console.error(err);
+    }
+    
+    var message = data.toString().split("\n");
+    //console.error(message);
+});
 
 //Read account
 var account = require('./account');
@@ -40,7 +59,7 @@ login({email: email, password: password}, (err, api) => {
 });
 
 var writeError = function(errors){
-    fs.writeFile("./errors.txt", JSON.stringify(errors), function(err) {
+    fs.writeFile("../errors.txt", JSON.stringify(errors), function(err) {
         if(err) {
             return console.log(err);
         }
