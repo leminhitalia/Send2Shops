@@ -16,6 +16,7 @@ var login = require("facebook-chat-api");
 
 login({email: email, password: password}, (err, api) => {
     if(err) {
+        writeError(err);
         return console.error(err);
     }
    
@@ -27,6 +28,7 @@ login({email: email, password: password}, (err, api) => {
         api.getUserID(shopName, (err, data) => {
             
             if(err) {
+                writeError(err);
                 return console.error(err);
             }
             
@@ -36,3 +38,12 @@ login({email: email, password: password}, (err, api) => {
         });
     }
 });
+
+var writeError = function(errors){
+    fs.writeFile("./errors.txt", JSON.stringify(errors), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+    });   
+};
